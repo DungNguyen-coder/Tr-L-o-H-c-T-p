@@ -2,6 +2,35 @@ from mypackage.library import*
 from mypackage.speak_hear import speak, hear
 
 
+def chat_with_me():
+    f1 = open("database\\question.txt", mode= "r", encoding= "utf8")
+    f2 = open("database\\answer.txt", mode = "r", encoding= "utf8")
+
+    question = f1.read().split("\n")
+    answer = f2.read().split("\n")
+    speak("Tất nhiên rồi, mình rất sẵn lòng tâm sự với bạn")
+    while True:
+        
+        you = hear()
+        if "thôi" in you or "kết thúc" in you :
+            speak("Bạn muốn mình giúp gì nữa không")
+            break
+        k = True
+        you = you.split(" ")
+        lst = []
+        for i in range(0, len(question)):
+            count = 0
+            for j in range(0, len(you)):
+                if you[j] in question[i] :
+                    count += 1
+            lst.append(count*10 / len(question[i].split(" ")))        
+        a =   np.argmax(lst)  
+        if lst[a] < 5 : speak("Mình không hiểu, bạn nói lại được không")
+        else: speak(answer[a])
+          
+                
+
+
 def get_time(text):
     now = datetime.datetime.now()
     if "giờ" in text:
@@ -15,6 +44,7 @@ def get_time(text):
 def stop():
     speak("Hẹn gặp lại bạn sau!")
 
+
 def hello(name):
     day_time = int(strftime('%H'))
     if  0 <= day_time < 11:
@@ -26,7 +56,7 @@ def hello(name):
     else:
         speak("Chào buổi tối bạn {}. Bạn đã ăn tối chưa nhỉ.".format(name))
 
-
+'''
 def talk_conversation(text):
     speak("Bạn muốn biết gì về tôi nào")
     if "tên gì" in text:
@@ -42,6 +72,7 @@ def talk_conversation(text):
     elif "bí thư" in text:
         speak("Bí thư Đoàn trường là thầy Phan Thế Định")
         speak("Và tôi rất tự hào vì trường, tôi mới được trao bằng khen từ bộ giáo dục")
+'''
 
 def help_me():
     speak("""Trợ lý P&P có thể giúp bạn thực hiện các câu lệnh sau đây:
@@ -56,10 +87,12 @@ def help_me():
     9. Đọc báo hôm nay
     10. Kể bạn biết về thế giới
     11. Xem phim 
-    12. Trò chuyện""")
+    12. Trò chuyện
+    14. Nhập điểm bằng giọng nói
+    15. Tạo file excel bất kì
+    """)
 
-
-def change_wallpaper():
+def change_wallpaper():  #oke
     api_key = 'RF3LyUUIyogjCpQwlf-zjzCf1JdvRwb--SLV6iCzOxw'
     url = 'https://api.unsplash.com/photos/random?client_id=' + \
         api_key  # pic from unspalsh.com
@@ -69,8 +102,7 @@ def change_wallpaper():
     parsed_json = json.loads(json_string)
     photo = parsed_json['urls']['full']
     # Location where we download the image to.
-    urllib2.urlretrieve(photo, "D:\\Download____CocCoc\\a.png")
-    image=os.path.join("D:\\Download____CocCoc\\a.png")
+    urllib2.urlretrieve(photo, "D:\\a.png")
+    image=os.path.join("D:\\a.png")
     ctypes.windll.user32.SystemParametersInfoW(20,0,image,3)
     speak('Hình nền máy tính vừa được thay đổi')
-
