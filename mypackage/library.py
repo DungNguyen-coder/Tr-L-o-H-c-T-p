@@ -22,6 +22,8 @@ from youtube_search import YoutubeSearch
 from os import mkdir
 import pandas as pd 
 import numpy as np
+from tkinter import *
+from PIL import Image, ImageTk
 
 
 wikipedia.set_lang('vi')

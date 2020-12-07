@@ -49,6 +49,9 @@ def Nhap_Diem():
             speak(row[1][i])
             
             s = hear()
+            if "," in str(s):
+                s = s.split(",")
+                s = ".".join(s)
 
             text1 += ',' + str(s)
         f1.write(text1 + '\n')
@@ -69,7 +72,7 @@ def init():
     i = 1
     lst = []
     while True:
-        speak("Cột" + str(i)  + "tên là gì vậy")
+        speak("Cột " + str(i)  + " tên là gì vậy")
         you = hear()
         if you == "": continue
         if "kết thúc" in you.lower() or "hết" in you.lower(): break
@@ -79,7 +82,7 @@ def init():
     return lst
 
 def init_csv(lst, name_file):
-    
+    speak("Bắt đầu tạo file")
     f1 = open("File\\" + name_file + "\\csv.csv", mode = "w" , encoding= "utf8" )
     s1 = lst[0]
     for i in range(1, len(lst)):
@@ -91,7 +94,7 @@ def init_csv(lst, name_file):
         s = hear()
         if "kết thúc" in s.lower() or "hết" in s.lower() : break
         for i in range(1, len(lst)):
-            speak(lst[i] + "là gì vậy")
+            speak(lst[i])
             you = hear()
             if you == "" : continue
             s += "," + you

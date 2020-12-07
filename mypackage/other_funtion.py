@@ -25,7 +25,7 @@ def chat_with_me():
                     count += 1
             lst.append(count*10 / len(question[i].split(" ")))        
         a =   np.argmax(lst)  
-        if lst[a] < 5 : speak("Mình không hiểu, bạn nói lại được không")
+        if lst[a] < 4 : speak("Mình không hiểu, bạn nói lại được không")
         else: speak(answer[a])
           
                 

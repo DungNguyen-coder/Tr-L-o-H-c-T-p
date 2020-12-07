@@ -1,7 +1,11 @@
-import numpy as numpy
+import pandas as pd
 
 
-lst = [3,5,6.7,8.9]
+def csv_to_excel(name_file):  # chuyển đội csv sang excel
+    df_new = pd.read_csv("File\\" + name_file + "\\csv.csv")
+    myfile = pd.ExcelWriter("File\\" + name_file + "\\xlsx.xlsx")
 
-a = numpy.argmax(lst)
-print(a)
+    df_new.to_excel(myfile, index= False)
+    myfile.save()
+
+csv_to_excel("test")
