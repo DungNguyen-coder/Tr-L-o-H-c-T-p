@@ -10,9 +10,10 @@ from tkinter import *
 from PIL import Image, ImageTk
 from threading import Thread
 # đồ họa
+
 root = Tk()
 root.title("Virtual Assistant Learning")
-root.geometry("700x830")
+root.geometry("900x830")
 root.iconbitmap("data_dohoa\\logo.ico")
 
 load = Image.open("data_dohoa\\background.png")
@@ -41,8 +42,6 @@ box2 = Text(root, width = 48, height = 8, font = ("ROBOTO", 16))
 box2.pack(pady = 0)
 
 
-
-
 def box1_hear(text):
     box1.delete(1.0, END)
     box1.insert(END, text)
@@ -57,7 +56,7 @@ def hear():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Tôi: ", end='')
-        audio = r.listen(source, phrase_time_limit = 8)
+        audio = r.listen(source, phrase_time_limit = 3)
         try:
             text = r.recognize_google(audio, language="vi-VN")
             print(text)

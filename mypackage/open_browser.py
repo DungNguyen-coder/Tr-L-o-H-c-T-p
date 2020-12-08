@@ -22,8 +22,10 @@ def open_google_and_search(text):  #oke
     que.send_keys(Keys.RETURN)
     speak("bạn muốn mình giúp gì nữa không")
 
-'''
-def send_email(text):   
+
+def send_email():   
+    speak("Xin lỗi chức năng này mình đang được nâng cấp, bạn có thể sử dụng lần sau ạ. Không biết mình có thể giúp bạn việc gì khác không ?")
+    '''
     speak('Bạn gửi email cho ai nhỉ')
     recipient = hear()
     

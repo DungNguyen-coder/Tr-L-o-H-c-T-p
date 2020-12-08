@@ -12,10 +12,17 @@ def chat_with_me():
     while True:
         
         you = hear()
+        if you == "": 
+            you = "A"
+        you = str(you)
+        
         if "thôi" in you or "kết thúc" in you :
             speak("Bạn muốn mình giúp gì nữa không")
             break
-        k = True
+            
+        if you == "": 
+            you = "A"
+        you = str(you)
         you = you.split(" ")
         lst = []
         for i in range(0, len(question)):
@@ -25,7 +32,7 @@ def chat_with_me():
                     count += 1
             lst.append(count*10 / len(question[i].split(" ")))        
         a =   np.argmax(lst)  
-        if lst[a] < 4 : speak("Mình không hiểu, bạn nói lại được không")
+        if lst[a] < 3 : speak("Mình không hiểu, bạn nói lại được không")
         else: speak(answer[a])
           
                 
