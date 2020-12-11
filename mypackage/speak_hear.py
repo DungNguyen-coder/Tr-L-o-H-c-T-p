@@ -12,7 +12,7 @@ from threading import Thread
 # đồ họa
 
 root = Tk()
-root.title("Virtual Assistant Learning")
+root.title("TRỢ LÝ ẢO HỌC TẬP")
 root.geometry("900x830")
 root.iconbitmap("data_dohoa\\logo.ico")
 
@@ -21,12 +21,12 @@ render = ImageTk.PhotoImage(load)
 img = Label(root, image = render)
 img.place(x = 0, y = 0)
 
-name = Label(root, text = "Virtual Assistant Learning", fg = '#FFFFFF', bd = 0, bg = "#03152D")
+name = Label(root, text = "TRỢ LÝ ẢO HỌC TẬP", fg = '#FFFFFF', bd = 0, bg = "#03152D")
 name.config(font = ("Transformers Movie", 35))
 name.pack(pady = 10)
 
 # box 1
-name1 = Label(root, text = "Robot Hear", fg = '#FFFFFF', bd = 0, bg = "#03152D")
+name1 = Label(root, text = "NGƯỜI DÙNG", fg = '#FFFFFF', bd = 0, bg = "#03152D")
 name1.config(font = ("Transformers Movie", 20))
 name1.pack(pady = 30)
 
@@ -34,7 +34,7 @@ box1 = Text(root, width = 48, height = 8, font = ("ROBOTO", 16))
 box1.pack(pady = 0)
 
 
-name2 = Label(root, text = "Robot Speak", fg = '#FFFFFF', bd = 0, bg = "#03153D")
+name2 = Label(root, text = "TRỢ LÝ ẢO", fg = '#FFFFFF', bd = 0, bg = "#03153D")
 name2.config(font = ("Transformers Movie", 20))
 name2.pack(pady = 30)
 

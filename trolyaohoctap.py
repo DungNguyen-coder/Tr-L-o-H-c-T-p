@@ -10,7 +10,7 @@ def Tro_ly_ao():
     speak("Xin chào, bạn tên là gì nhỉ?")
     name = hear()
     if True:
-        speak("Chào bạn "+ name)
+        speak("Chào bạn "+ str(name))
         box2_speak(dohoa1.tro_ly)
         speak("Bạn cần Trợ lý P&P có thể giúp gì ạ?")
         box2_speak(dohoa1.tro_ly)
@@ -24,6 +24,10 @@ def Tro_ly_ao():
             elif "dừng" in text or "tạm biệt" in text or "chào bạn" in text or "ngủ thôi" in text:
                 stop()
                 break
+            elif "toán" in text or "hệ phương trình" in text:
+                he_phuong_trinh_bac_2()
+                time.sleep(1)
+                speak("Bạn cần mình giúp gì nữa không ?")
             elif "có thể làm gì" in text:
                 help_me()
             elif "chào" in text:

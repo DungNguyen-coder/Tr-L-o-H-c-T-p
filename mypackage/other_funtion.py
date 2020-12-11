@@ -36,7 +36,54 @@ def chat_with_me():
         else: speak(answer[a])
           
                 
-
+def he_phuong_trinh_bac_2():
+    speak("Hiện tại mình đang có chức năng giải hệ phương trình bậc 2. ")
+    speak("a1X + b1Y = c1 \na2X + b2Y = c2")
+    
+    speak("Bạn cho mình hệ số của phương trình 1 nha !")
+    speak("a1 = ")
+    try:
+        a1 = float(hear())
+    except :
+        a1 = 1
+    speak("b1 = ")
+    try:
+        b1 = float(hear())
+    except :
+        b1 = 1
+    speak("c1 = ")
+    try:
+        c1 = float(hear())
+    except :
+        c1 = 1
+    speak("a2 = ")
+    try:
+        a2 = float(hear())
+    except :
+        a2 = 1
+    speak("b2 = ")
+    try:
+        b2 = float(hear())
+    except :
+        b2 = 1
+    speak("c2 = ")
+    try:
+        c2 = float(hear())
+    except :
+        c2 = 1
+    speak("Mình sẽ giải hệ phương trình này")
+    speak(str(a1) + "X + " + str(b1) + "Y = " +str(c1) +"\n" +str(a2) + "X + " + str(b2) + "Y = " +str(c2))
+    if a1*b1*c1*a2*b2*c2 == 1: 
+        speak("Có thể mình đã không nghe rõ số bạn nói. Bạn thông cảm nha")
+    time.sleep(1)
+    if a1*b2 == a2*b1:
+        if c1 == c2: speak("hệ phương trình có vô số nghiệm")
+        else: speak("hệ phương trình vô nghiệm")
+    else:
+        x = (b2*c1 - b1*c2)/(a1*b2- a2*b1)
+        y = (c1 - a1*x)/b1
+        speak("Nghiệm của hệ phương trình là: ")
+        speak("X = " + str(x) + "\nY = " + str(y))
 
 def get_time(text):
     now = datetime.datetime.now()
@@ -49,7 +96,7 @@ def get_time(text):
         speak("Trợ lý P&P chưa hiểu ý của bạn. Bạn nói lại được không?")
 
 def stop():
-    speak("Hẹn gặp lại bạn sau!")
+    speak("Tạm biệt. Hẹn gặp lại bạn sau!")
 
 
 def hello(name):
@@ -109,7 +156,7 @@ def change_wallpaper():  #oke
     parsed_json = json.loads(json_string)
     photo = parsed_json['urls']['full']
     # Location where we download the image to.
-    urllib2.urlretrieve(photo, "D:\\a.png")
-    image=os.path.join("D:\\a.png")
+    urllib2.urlretrieve(photo, "E:\\a.png")
+    image=os.path.join("E:\\a.png")
     ctypes.windll.user32.SystemParametersInfoW(20,0,image,3)
     speak('Hình nền máy tính vừa được thay đổi')
